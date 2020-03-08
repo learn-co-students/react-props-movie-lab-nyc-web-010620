@@ -18,18 +18,6 @@ export default class CardBack extends Component {
     }
   }
 
-  generateGenresString = () => {
-    let genres = ''
-
-    this.props.genres.forEach(genre => genres += `${genre}, `)
-
-    return this.removeCommaFromString(genres)
-  }
-
-  removeCommaFromString = string => {
-    return string.slice(0, string.length - 2)
-  }
-  
   render() {  
     return (
       <div className="card-back">
@@ -37,7 +25,7 @@ export default class CardBack extends Component {
         <span />
           {this.generateRatingElement()}
         <span />
-        <h5 className="genres">{this.generateGenresString()}</h5>
+        <h5 className="genres">{this.props.genres.join(', ')}</h5>
       </div>
     )
   }
